@@ -1,0 +1,56 @@
+<div class="container">
+<style>
+#logo {
+border-radius: 7px;
+margin-top: -20px;
+margin-left: -15px;
+max-width: 220px;
+}
+.navbar-nav > .active > a {
+background: #eee;
+color: #fff;
+background: #021433;
+border-radius: 3px;
+}
+</style>
+  <div class="row">
+    <div class="site-header spacing-t">
+      <div class="col-md-3 ">
+        <div class="site-name spacing-b">
+
+          <img id=logo src="<%= image_path("header_logo_fundo.png") %>" class="bw"  alt="" >
+          <!--h6>Lorem ipsum dolor sit amet</h6-->
+        </div>
+      </div>
+    <div class="col-md-9">
+      <nav class="navbar pull-right " role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"><h3 class="hide">Menu</h3>
+      <span class="fw-icon-th-list "></span>
+
+    </button>
+
+  </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="homepage">Home</a></li>
+            <li class="dropdown ">
+        <a href="/welcome/about" >about </a>
+      </li>
+        <li><a href="/welcome/players" >players</a></li>
+             <li><a href="/welcome/news" >news</a></li>
+            <li><a href="/welcome/contact" >contato</a></li>
+
+          </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+
+    </div>
+    </div>
+  </div>
+
+</div>

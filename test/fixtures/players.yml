@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: MyString
+  video: MyString
+  name: MyString
+  dob: 2017-09-04
+  nation: MyString
+  weight: MyString
+  height: MyString
+  club: MyString
+  order: 1
+  status: 1
+
+two:
+  img: MyString
+  video: MyString
+  name: MyString
+  dob: 2017-09-04
+  nation: MyString
+  weight: MyString
+  height: MyString
+  club: MyString
+  order: 1
+  status: 1

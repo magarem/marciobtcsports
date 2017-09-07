@@ -1,0 +1,73 @@
+<div class="container">
+      <div class="site-footer">
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <div class="block">
+              <h2>Designed By</h2>
+              <a href="http://magaweb.com.br">www.magaweb.com.br</a>
+                              </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="block">
+              <h2>Photos From</h2>
+              <a href="http://wallpaperswide.com">www.wallpaperswide.com</a>
+                              </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="block">
+              <h2>copyrights</h2>
+              <a href="#">@2017. All rights reserved</a>
+
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="block">
+              <h2>follow us</h2>
+              <a href="#"><i class="fw-icon-twitter "></i> Twitter</a>
+              <a href="#"><i class="fw-icon-facebook"></i> Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+ <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+ <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.5/jquery.jcarousel-autoscroll.min.js"></script>
+<script src="http://sorgalla.com/jcarousel/examples/responsive/jcarousel.responsive.js"></script>
+
+<script>
+// Instantiate the Bootstrap carousel
+$('.multi-item-carousel').carousel({
+  interval: false
+});
+
+// for every slide in carousel, copy the next slide's item in the slide.
+// Do the same for the next, next item.
+$('.multi-item-carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  if (next.next().length>0) {
+    next.next().children(':first-child').clone().appendTo($(this));
+  } else {
+  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});
+</script>
+</body>
+</html>

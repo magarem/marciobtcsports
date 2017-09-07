@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  data: 2017-09-04
+  origem: one
+  destino: one
+  order: 1
+  status: 1
+
+two:
+  player: two
+  data: 2017-09-04
+  origem: two
+  destino: two
+  order: 1
+  status: 1
