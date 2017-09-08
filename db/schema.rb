@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905004309) do
+ActiveRecord::Schema.define(version: 20170908180623) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "img"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170905004309) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "team_id"
+    t.integer "position"
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 

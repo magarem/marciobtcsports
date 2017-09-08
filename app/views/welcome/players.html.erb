@@ -1,1 +1,206 @@
-players
+<style>
+   p {
+     font-size: 20px;
+   }
+
+   .wrap {
+     overflow: hidden;
+     margin: 10px;
+     width:100%;
+  }
+  .box {
+     float: left;
+     position: relative;
+     width: 20%;
+     padding-bottom: 20%;
+  }
+  .boxInner {
+     position: absolute;
+     left: 10px;
+     right: 10px;
+     top: 10px;
+     bottom: 10px;
+     overflow: hidden;
+  }
+  .boxInner img {
+     width: 100%;
+  }
+  .boxInner .titleBox {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     margin-bottom: -50px;
+     background: #000;
+     background: rgba(0, 0, 0, 0.5);
+     color: #FFF;
+     padding: 10px;
+     text-align: center;
+     -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+     -o-transition: all 0.3s ease-out;
+     transition: all 0.3s ease-out;
+  }
+  body.no-touch .boxInner:hover .titleBox, body.touch .boxInner.touchFocus .titleBox {
+     margin-bottom: 0;
+  }
+  @media only screen and (max-width : 480px) {
+     /* Smartphone view: 1 tile */
+     .box {
+        width: 100%;
+        padding-bottom: 100%;
+     }
+  }
+  @media only screen and (max-width : 650px) and (min-width : 481px) {
+     /* Tablet view: 2 tiles */
+     .box {
+        width: 50%;
+        padding-bottom: 50%;
+     }
+  }
+  @media only screen and (max-width : 1050px) and (min-width : 651px) {
+     /* Small desktop / ipad view: 3 tiles */
+     .box {
+        width: 33.3%;
+        padding-bottom: 33.3%;
+     }
+  }
+  @media only screen and (max-width : 1290px) and (min-width : 1051px) {
+     /* Medium desktop: 4 tiles */
+     .box {
+        width: 33.3%;
+        padding-bottom: 25%;
+     }
+  }
+
+  .selectableImageContainer {
+  border: 1px solid #CCC;
+  padding: 5px;
+  margin: 7px;
+  float: left;
+  width: 212px;
+  text-align: center;
+}
+
+.zoom_toolbar_button {
+  height: 32px;
+  width: 32px;
+  float: right;
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-top: 8px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  padding: 6px 0 0 3px;
+}
+
+.approved_image_toolbar_button {
+  background-color: #8bc249;
+  height: 32px;
+  width: 32px;
+  float: right;
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-top: 8px;
+  cursor: pointer;
+  padding: 6px 0 0 3px;
+}
+
+.disapproved_image_toolbar_button {
+  background-color: #bb232a;
+  height: 32px;
+  width: 32px;
+  float: right;
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-top: 8px;
+  cursor: pointer;
+  padding: 6px 0 0 1px;
+}
+
+.reviewIssuesButton {
+  margin-left: 20px;
+  color: #ffffff;
+  background-color: #00aeef;
+}
+
+.markAllReviewed {
+  background-color: #00aeef;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.white {
+  color: #ffffff;
+}
+  </style>
+<div class="container">
+  <div class="container" style="margin-top: 20px;">
+    <h1 class="mt-4 text-center">Players</h1>
+  </div>
+    <div class="container col-md-offset-1 col-lg-offset-1">
+
+
+
+    <!-- Define all of the tiles: -->
+    <h3>Goalkeeper</h3>
+    <%@player_goalkeeper.in_groups_of(4, false).each do |group| %>
+      <div class='wrap'>
+        <% group.each do |item| %>
+          <div class="box">
+            <div class="boxInner">
+              <a href=player-1.html><%= image_tag(item.img, class: "text-center") %></a>
+              <div class="titleBox"><%=item.name %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  <div class="wrap ">
+    <!-- Define all of the tiles: -->
+    <h3>Strikers</h3>
+    <div class="box">
+      <div class="boxInner">
+        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/7.jpg" />
+        <div class="titleBox">Butterfly</div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="boxInner">
+        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/1.jpg" />
+        <div class="titleBox">An old greenhouse</div>
+      </div>
+    </div>
+    <div class="box" >
+      <div class="boxInner">
+        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/2.jpg" />
+        <div class="titleBox">Purple wildflowers</div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="wrap ">
+<!-- Define all of the tiles: -->
+<h3>OFFENSIVE MIDFIELDERS</h3>
+<div class="box">
+  <div class="boxInner">
+    <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/7.jpg" />
+    <div class="titleBox">Butterfly</div>
+  </div>
+</div>
+<div class="box">
+  <div class="boxInner">
+    <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/1.jpg" />
+    <div class="titleBox">An old greenhouse</div>
+  </div>
+</div>
+<div class="box" >
+  <div class="boxInner">
+    <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/2.jpg" />
+    <div class="titleBox">Purple wildflowers</div>
+  </div>
+</div>
+</div>
