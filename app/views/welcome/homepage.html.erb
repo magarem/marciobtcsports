@@ -117,13 +117,7 @@
      <!-- <img src="images/image1.jpg" class="bw"  alt=""> -->
       <div class="caption">
         <div class=home_box>
-        <h3>News</h3>
-        <b><%=
-        unless @midium.last.title.to_s.strip.empty?
-          raw(@midium.last.title+"<br>")
-        end
-        %></b>
-
+        <h3>News</h3>      
         <%= truncate(@midium.last.txt, :length => 700) %><br><br>
         <p> <a href="about" class="btn btn-default" role="button">more</a></p>
 
