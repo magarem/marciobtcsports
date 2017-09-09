@@ -1,3 +1,16 @@
+<%
+def youtube_embed(youtube_url)
+  if youtube_url[/youtu\.be\/([^\?]*)/]
+    youtube_id = $1
+  else
+    # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+    youtube_id = $5
+  end
+
+  %Q{<iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+end
+%>
 <style>
    p {
      font-size: 20px;
@@ -140,67 +153,55 @@
     <h1 class="mt-4 text-center">Players</h1>
   </div>
     <div class="container col-md-offset-1 col-lg-offset-1">
-
-
-
-    <!-- Define all of the tiles: -->
-    <h3>Goalkeeper</h3>
-    <%@player_goalkeeper.in_groups_of(4, false).each do |group| %>
-      <div class='wrap'>
-        <% group.each do |item| %>
-          <div class="box">
-            <div class="boxInner">
-              <a href=player-1.html><%= image_tag(item.img, class: "text-center") %></a>
-              <div class="titleBox"><%=item.name %></div>
+     <%
+     if @player_id.to_s.empty?
+     %>
+        <!-- Define all of the tiles: -->
+        <%
+        @array_position.each do |key, value|
+          if value.length > 0
+        %>
+          <h3><%=key%></h3>
+          <%value.in_groups_of(4, false).each do |group| %>
+            <div class='wrap'>
+              <% group.each_with_index do |item, index| %>
+                <div class="box">
+                  <div class="boxInner">
+                    <a href=players?player_id=<%=item.id %>><%= image_tag(item.img, class: "text-center") %></a>
+                    <div class="text-center"><b><%=item.name %></b></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <br>
+       <% end %>
+      <% end %>
+  <%else%><br>
+      <div class="container" >
+       <div class="row ">
+        <div class="col-md-4 "><img style="max-width: 250px;" src="<%=@player.img%>" /></div>
+        <div class="col-md-8" >
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <h2><%=@player.name%></h2>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-
-  <div class="wrap ">
-    <!-- Define all of the tiles: -->
-    <h3>Strikers</h3>
-    <div class="box">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/7.jpg" />
-        <div class="titleBox">Butterfly</div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/1.jpg" />
-        <div class="titleBox">An old greenhouse</div>
-      </div>
-    </div>
-    <div class="box" >
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/2.jpg" />
-        <div class="titleBox">Purple wildflowers</div>
-      </div>
-    </div>
-  </div>
-
-
-<div class="wrap ">
-<!-- Define all of the tiles: -->
-<h3>OFFENSIVE MIDFIELDERS</h3>
-<div class="box">
-  <div class="boxInner">
-    <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/7.jpg" />
-    <div class="titleBox">Butterfly</div>
-  </div>
-</div>
-<div class="box">
-  <div class="boxInner">
-    <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/1.jpg" />
-    <div class="titleBox">An old greenhouse</div>
-  </div>
-</div>
-<div class="box" >
-  <div class="boxInner">
-    <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/2.jpg" />
-    <div class="titleBox">Purple wildflowers</div>
-  </div>
-</div>
-</div>
+          <div class="row" style="font-size: 16px;">
+                <div class="col-sm-4 col-md-4">
+                    <b>D.O.B:</b> <%=@player.dob%><br><b>Nationality:</b> <%=@player.nation%><br><b>Weight:</b><%=@player.weight%><br>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <b>Height:</b><%=@player.height%><br><b>Present Club:</b> <%=@player.team.name%>
+                </div>
+              </div><br>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=@player.video%>" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                  </div>
+              <br><Br><br><Br>
+                </div>
+              </div>
+              </div>
+              </div>
+              </div>
+        <%end%>

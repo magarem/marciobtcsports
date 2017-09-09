@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/homepage'
   get 'welcome/about'
   get 'welcome/players'
-  get 'welcome/news'
+  get 'welcome/midium'
   get 'welcome/contact'
 
   root 'welcome#homepage'

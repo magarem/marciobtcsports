@@ -1,0 +1,25 @@
+    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+      <h1 class="mt-4 text-center">News</h1>
+    </div>
+  <div class="container" >
+    <%- @midium.each do |s| %>
+        <div class="row">
+          <!-- Post Content Column -->
+          <div class="col-lg-8 col-md-offset-1">
+            <!-- Title -->
+            <h2 class="mt-4"><%= s.title %></h2>
+            <!-- Date/Time -->
+            <p>Posted on <%= s.data %></p>
+            <!-- Preview Image -->
+            <%= image_tag(s.img, class: "text-center") if s.img%>
+            <%if s.img.present?%>
+              <br>
+              <br>
+            <%end%>
+            <!-- Post Content -->
+            <%=s.txt%>
+            <hr>
+         </div>
+      </div>
+    <%end%>
+  </div>
