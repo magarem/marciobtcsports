@@ -117,7 +117,7 @@
      <!-- <img src="images/image1.jpg" class="bw"  alt=""> -->
       <div class="caption">
         <div class=home_box>
-        <h3>News</h3>      
+        <h3>News</h3>
         <%= truncate(@midium.last.txt, :length => 700) %><br><br>
         <p> <a href="about" class="btn btn-default" role="button">more</a></p>
 
@@ -208,7 +208,7 @@
 
           <%- @players.each_with_index do |s, index| %>
             <div class=" <% if index == 0 %> item active <%else%>item<% end %>">
-              <div class="col-xs-4"><a href="#1"><img src="<%= s.img %>" ></a></div>
+              <div class="col-xs-4"><a href="#1"><img src="<%= s.img %>" style="height:250px;"></a></div>
             </div>
           <% end %>
 
